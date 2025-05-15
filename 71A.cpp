@@ -1,50 +1,63 @@
-//A. Way Too Long Words - Codeforce
+//============================================================================
+// A. Way Too Long Words - Codeforces
+// Author: H M Nafees N Islam
+// Institution: North South University (NSU), CSE
+// Description: Abbreviate words longer than 10 characters in a specific format
+//============================================================================
+
+/*
+  بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
+  Start with the name of Allah
+*/
 
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+// Fast I/O
+#define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+
+// Type aliases
+using ll = long long;
+using ull = unsigned long long;
+
+// Debug (disabled in submission)
+#ifdef LOCAL
+    #define debug(x) cerr << #x << " = " << x << '\n';
+#else
+    #define debug(x)
+#endif
+
+int main() {
+    FAST_IO;
+
     int n;
     cin >> n;
 
-    while (n--)
-    {
+    while (n--) {
         string w;
         cin >> w;
 
-        int len = w.length();
-
-        if (len > 10)
-        {
-            int mid_len = len - 2;
-            char start_letter = w[0];
-            char end_letter = w[len - 1];
-
-            cout<<start_letter<<mid_len<<end_letter<<endl;
+        int len = (int)w.length();
+        if (len > 10) {
+            cout << w[0] << len - 2 << w[len - 1] << '\n';
+        } else {
+            cout << w << '\n';
         }
-        else
-        {
-            cout<<w<<endl;
-        }
-
     }
 
     return 0;
 }
 
+/*
+  ## 💡 Solution Logic
+  For words longer than 10 characters, output the abbreviation:
+    - First letter
+    - Number of letters between first and last (length - 2)
+    - Last letter
+  Otherwise, print the word as-is.
+*/
 
 /*
-
-## 💡 Solution Logic
-
-To abbreviate a word that's too long:
-- If the word length is **greater than 10**, we compress it to:
-  - First letter
-  - Number of letters between the first and last
-  - Last letter
-
-### ✅ Abbreviation Format:
-```cpp
-first_letter + (length - 2) + last_letter
+  Alhamdulillah, problem solved!
+  الحمد لله الذي بنعمته تتم الصالحات
 */
