@@ -2,7 +2,8 @@
 // 546A. Soldier and Bananas - Codeforces
 // Author: H M Nafees N Islam
 // Institution: North South University (NSU), CSE
-// Description: Abbreviate words longer than 10 characters in a specific format
+// Description: Calculates how much money the soldier needs to borrow
+// to buy all bananas
 //============================================================================
 
 /*
@@ -57,12 +58,12 @@ int main()
 
 /*
   ## 💡 Solution Logic
-  For words longer than 10 characters, output the abbreviation:
-    - First letter
-    - Number of letters between first and last (length - 2)
-    - Last letter
-  Otherwise, print the word as-is.
+  - The total cost to buy `w` bananas with the price of the i-th banana being `i*k` is the sum:
+      total += i*first banana price
+  - If the soldier doesn't have enough money (`n`), he needs to borrow the difference:
+      borrow = max(0, total - n)
 */
+
 
 /*
   Alhamdulillah, problem solved!
