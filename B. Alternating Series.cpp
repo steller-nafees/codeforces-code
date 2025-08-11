@@ -1,13 +1,14 @@
 //============================================================================
-// Codeforces Div-3 June 17, 2025
-// A. Letter Home - Codeforces
+// Codeforces Div-3 August 10, 2025
+// B. Alternating Series - Codeforces
 // Author: H M Nafees N Islam
 // Institution: North South University (NSU), CSE
-// Description: Calculates the minimum number of steps required to visit all
-//              specified positions on the X-axis starting from position `s`.
-//              In each move, you can go to pos+1 or pos−1. The goal is to
-//              visit all positions given in the array at least once in the
-//              minimum number of steps.
+// Description: Given n, construct the lexicographically smallest "good" array.
+//              An array is good if:
+//                1. Adjacent elements have opposite signs.
+//                2. Every subarray of length ≥ 2 has a positive sum.
+//              Among all good arrays of length n, output the lexicographically
+//              smallest sequence by absolute values.
 //============================================================================
 
 /*
@@ -83,15 +84,18 @@ int main()
 
 
 /*
-  ## 💡 Solution Logic
-  - Read number of test cases `t`.
-  - For each test case:
-      - Read `n` (number of required positions) and `s` (starting position).
-      - Read array `x` of required positions (sorted and distinct).
-      - Calculate `min_x` and `max_x` (first and last position to visit).
-      - Minimum steps = (max_x - min_x) + min(|s - min_x|, |s - max_x|)
-        → Go to closer end and walk across the entire segment.
-  - Print the result for each test case.
+  💡 Solution Logic:
+  - For odd indices (1-based), choose -1 (negative).
+  - For even indices, choose 3 (positive) except the last element for even n.
+  - This alternating pattern (-1, 3, -1, 3, ...) satisfies:
+      • Adjacent product < 0 (sign alternates).
+      • Any subarray of length ≥ 2 has a positive sum.
+  - For even n:
+      • Fill first n-2 positions with (-1, 3, ...) and end with (-1, 2).
+        This ensures minimal lexicographic absolute values while keeping the
+        "good" property.
+  - For odd n:
+      • Simply alternate (-1, 3) for all n positions.
 */
 
 /*

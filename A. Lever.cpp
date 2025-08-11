@@ -1,15 +1,17 @@
 //============================================================================
-// Codeforces Div-3 June 17, 2025
-// A. Letter Home - Codeforces
+// Codeforces Div-3 August 10, 2025
+// A. Lever - Codeforces
 // Author: H M Nafees N Islam
 // Institution: North South University (NSU), CSE
-// Description: Calculates the minimum number of steps required to visit all
-//              specified positions on the X-axis starting from position `s`.
-//              In each move, you can go to pos+1 or pos−1. The goal is to
-//              visit all positions given in the array at least once in the
-//              minimum number of steps.
+// Description: Given two integer arrays a and b of length n, simulate the
+//              Lever's process:
+//                1. In each iteration, if there exists an index i with a[i] > b[i],
+//                   decrease one such a[i] by 1.
+//                2. Then, if there exists an index i with a[i] < b[i],
+//                   increase one such a[i] by 1.
+//                3. Stop when step 1 is skipped (no a[i] > b[i]).
+//              Output the number of iterations before the process stops.
 //============================================================================
-
 /*
   بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
   Start with the name of Allah
@@ -94,17 +96,20 @@ int main()
 
 
 /*
-  ## 💡 Solution Logic
-  - Read number of test cases `t`.
+  💡 Solution Logic:
+  - Read t test cases.
   - For each test case:
-      - Read `n` (number of required positions) and `s` (starting position).
-      - Read array `x` of required positions (sorted and distinct).
-      - Calculate `min_x` and `max_x` (first and last position to visit).
-      - Minimum steps = (max_x - min_x) + min(|s - min_x|, |s - max_x|)
-        → Go to closer end and walk across the entire segment.
-  - Print the result for each test case.
+      - Read n, array a, and array b.
+      - Initialize iteration counter to 0.
+      - Repeat:
+          • Step 1: Find first index with a[i] > b[i]; decrement it by 1.
+            If not found, break out of loop.
+          • Step 2: Find first index with a[i] < b[i]; increment it by 1
+            (if any).
+          • Increment iteration counter.
+      - Output the iteration count.
+  - Since n ≤ 10 and values ≤ 10, direct simulation is efficient.
 */
-
 /*
   Alhamdulillah, problem solved successfully!
   الحمد لله الذي بنعمته تتم الصالحات
