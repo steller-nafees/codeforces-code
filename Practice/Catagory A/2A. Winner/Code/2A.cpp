@@ -1,6 +1,6 @@
 //============================================================================
 // Codeforces Problem 749A
-// Bachgold Problem
+// Problem Title: Bachgold Problem
 // Author: H M Nafees N Islam
 // Institution: North South University (NSU), CSE
 // Date: September 25, 2025

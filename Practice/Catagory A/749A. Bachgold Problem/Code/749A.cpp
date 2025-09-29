@@ -52,8 +52,7 @@ using ull = unsigned long long;
 
 void solve()
 {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+
     
     int n; cin>>n;
     int maxPrime = n/2 ;
