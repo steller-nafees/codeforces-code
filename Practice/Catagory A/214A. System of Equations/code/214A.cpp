@@ -1,20 +1,27 @@
 //============================================================================
-// Codeforces Problem 214A
-// Problem Title:  System of Equations
-// Author: H M Nafees N Islam
-// Institution: North South University (NSU), CSE
-// Date: September 29, 2025 
+// Platform      : Codeforces 
+// Problem Title : 214A - System of Equations
+// Author        : H M Nafees N Islam
+// Institution   : North South University (NSU), Department of CSE
+// Date          : September 29, 2025 
 //
 // Problem Statement:
-// 
+//   You are given two integers n and m. Count how many pairs of integers (a, b)
+//   (where a, b ≥ 0) satisfy the following system of equations:
+//
+//       a² + b = n
+//       a + b² = m
 //
 // Input:
+//   Two integers n and m (1 ≤ n, m ≤ 1000).
 //
 // Output:
+//   Print a single integer — the number of pairs (a, b) that satisfy the system.
 //
 // Constraints:
-//  - Time limit: 
-//  - Memory limit: 
+//   - 1 ≤ n, m ≤ 1000
+//   - Time limit: 2 seconds
+//   - Memory limit: 256 MB
 //============================================================================
 
 /*
@@ -77,7 +84,10 @@ int main()
 
 /*
   💡 Solution Logic:
-  - 
+  - Iterate over all possible values of a (0 ≤ a ≤ sqrt(n), a ≤ m).
+  - For each a, compute b = n - a².
+  - Check if the second condition a + b² = m holds.
+  - Count the valid pairs (a, b).
 */
 
 /*
