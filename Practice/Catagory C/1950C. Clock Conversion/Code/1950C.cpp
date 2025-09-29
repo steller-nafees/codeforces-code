@@ -72,8 +72,7 @@ void solve() {
     }
 
     // Print with leading zeros
-    cout << setw(2) << setfill('0') << hour << ":"
-         << setw(2) << setfill('0') << minute << " " << period << "\n";
+    cout << setw(2) << setfill('0') << hour << ":" << setw(2) << setfill('0') << minute << " " << period << "\n";
 
 
 }

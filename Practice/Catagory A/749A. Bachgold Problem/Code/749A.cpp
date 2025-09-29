@@ -52,8 +52,7 @@ using ull = unsigned long long;
 
 void solve()
 {
-
-    
+      
     int n; cin>>n;
     int maxPrime = n/2 ;
 
