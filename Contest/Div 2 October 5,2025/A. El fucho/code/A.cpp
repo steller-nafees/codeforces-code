@@ -103,6 +103,6 @@ int main()
 */
 
 /*
-  Alhamdulillah, problem solved successfully!!
+  Alhamdulillah, problem solved successfully!
   الحمد لله الذي بنعمته تتم الصالحات
 */
