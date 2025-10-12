@@ -62,25 +62,22 @@ void solve()
     vi(a,n); int ans = 0;
     INPUT_ARRAY(a,n);
 
-    vector<int> freq(n+1,0);
-    for(int x : a) freq[x]++;
+    vector<int> f(n+1,0);
+    for(int i : a) f[i]++;
 
- 
-    int missing = 0;
+    int m = 0;
     for(int i=0; i < k ; i++)
     {
-      if(freq[i] == 0)
-        missing++;
+      if(f[i] == 0)
+        m++;
     }
-    int countK = 0; 
+    int count_K = 0; 
     if(k <= n)
-      countK = freq[k];
-    
-    ans = max (missing, countK);
-    cout<< ans << endl; 
-    
-    
-    
+      count_K = f[k];
+
+    ans = max (m, count_K);
+    cout<< ans << endl;
+
 }
 
 int main()
