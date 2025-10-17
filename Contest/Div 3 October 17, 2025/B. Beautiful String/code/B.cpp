@@ -47,19 +47,14 @@
 using namespace std;
 
 // Fast I/O
-#define FAST_IO                \
-  ios::sync_with_stdio(false); \
-  cin.tie(nullptr);            \
-  cout.tie(nullptr);
-#define OUTPUT_CONDITION(x) x ? "YES" : "NO"
-#define INPUT_ARRAY(a, n)     \
-  for (int i = 0; i < n; i++) \
-    cin >> a[i];
-#define OUTPUT_2Values(o1, o2) cout << o1 << " " << o2 << endl
-#define SORT_DESC(a) sort(a.begin(), a.end(), greater<int>())
+#define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+#define OUTPUT_CONDITION(x) x?"YES" : "NO"
+#define INPUT_ARRAY(a,n) for(int i = 0; i<n; i++) cin>>a[i];
+#define OUTPUT_2Values(o1,o2) cout<<o1<<" "<<o2<<endl
+#define SORT_DESC(a) sort(a.begin(), a.end(),greater<int>())
 #define SORT_ASC(a) sort(a.begin(), a.end())
-#define vi(a, n) vector<int> a(n);
-#define vl(a, n) vector<ll> a(n);
+#define vi(a,n) vector<int> a(n);
+#define vl(a,n) vector<ll> a(n);
 // Type aliases
 using ll = long long;
 using ull = unsigned long long;
