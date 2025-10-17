@@ -6,15 +6,37 @@
 // Date          : October 17, 2025 
 //
 // Problem Statement:
-// 
+//   You are given an array a of length n.
+//
+//   Your task is to find the maximum possible average value of any subarray
+//   of the array a.
+//
+//   Formally, for any indices l, r such that 1 ≤ l ≤ r ≤ n,
+//   define the average of the subarray a_l, a_{l+1}, …, a_r as:
+//       avg(l, r) = (1 / (r - l + 1)) * Σ_{i=l}^{r} a_i
+//
+//   You need to output the maximum value of avg(l, r) over all possible pairs (l, r).
+//
+//   It can be shown that the answer is always an integer.
 //
 // Input:
+//   The first line contains a single integer t (1 ≤ t ≤ 10⁴) — 
+//   the number of test cases.
+//   The first line of each test case contains a single integer n (1 ≤ n ≤ 10) — 
+//   the length of the array.
+//   The second line contains n integers a₁, a₂, …, aₙ (1 ≤ aᵢ ≤ 10) — 
+//   the elements of the array.
 //
 // Output:
+//   For each test case, print a single integer — the maximum average value 
+//   of any subarray.
 //
 // Constraints:
-//  - Time limit: 
-//  - Memory limit: 
+//   - 1 ≤ t ≤ 10⁴
+//   - 1 ≤ n ≤ 10
+//   - 1 ≤ aᵢ ≤ 10
+//   - Time limit: 1 second
+//   - Memory limit: 256 MB
 //============================================================================
 
 /*
@@ -45,14 +67,6 @@ using ull = unsigned long long;
 #define debug(x)
 #endif
 
-bool isPalindrome(string s) 
-{
-    string t = s;             
-    reverse(t.begin(), t.end()); 
-    return s == t;            
-}
-
-
 void solve()
 {
     int n; cin>>n;
@@ -78,7 +92,12 @@ int main()
 
 /*
   💡 Solution Logic:
-  - 
+  - The problem asks for the maximum average of any subarray.
+  - Since all elements are positive and small (1 ≤ aᵢ ≤ 10),
+    the maximum average is simply the maximum element itself.
+  - Sorting the array in descending order and outputting the first element
+    (a[0]) gives the highest possible average.
+  - Time Complexity: O(n log n) per test case (negligible for small n ≤ 10).
 */
 
 /*
