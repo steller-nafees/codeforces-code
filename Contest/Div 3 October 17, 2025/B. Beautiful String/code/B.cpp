@@ -6,15 +6,36 @@
 // Date          : October 17, 2025
 //
 // Problem Statement:
+//   You are given a binary string s of length n.
 //
+//   Your task is to find any subsequence p of s such that:
+//     1. The subsequence p is non-decreasing (each character in p is not
+//        greater than the next one).
+//     2. Let x denote the string obtained by removing all characters of p from s,
+//        while preserving the order of the remaining characters. Then x must
+//        be a palindrome.
+//
+//   You need to output any valid subsequence p that satisfies both conditions.
+//   If no such subsequence exists, output -1.
 //
 // Input:
+//   The first line contains a single integer t (1 ≤ t ≤ 3000) — the number of test cases.
+//   The first line of each test case contains a single integer n (1 ≤ n ≤ 10)
+//   — the length of the string.
+//   The second line contains a binary string s of length n.
 //
 // Output:
+//   If a solution exists:
+//     - On the first line, print a single integer k (0 ≤ k ≤ n) — the length of p.
+//     - On the second line, print k distinct integers i1, i2, …, ik (1 ≤ i1 < i2 < … < ik ≤ n)
+//       — the indices of the characters in s that form p.
+//   Otherwise, print -1.
 //
 // Constraints:
-//  - Time limit:
-//  - Memory limit:
+//   - 1 ≤ n ≤ 10
+//   - 1 ≤ t ≤ 3000
+//   - Time limit: 1 second
+//   - Memory limit: 256 MB
 //============================================================================
 
 /*
@@ -78,14 +99,14 @@ void solve() {
                 p.push_back(s[j]);
                 indexes.push_back(j + 1);
             } else {
-                x.push_back(s[j]); // ✅ fixed
+                x.push_back(s[j]); 
             }
         }
 
         if (is_non_decreasing(p) && is_palindrome(x)) {
             cout << indexes.size() << "\n";
             if (!indexes.empty()) {
-                for (int j = 0; j < (int)indexes.size(); j++) // ✅ fixed
+                for (int j = 0; j < (int)indexes.size(); j++) 
                     cout << indexes[j] << (j + 1 == indexes.size() ? '\n' : ' ');
             }
             ok = true;
@@ -112,8 +133,17 @@ int main()
 
 /*
   💡 Solution Logic:
-  -
+  - For each test case, we try all possible subsequences p (since n ≤ 10, 2ⁿ is feasible).
+  - For each subset mask:
+      → Characters included in the mask form subsequence p.
+      → Characters not included form string x.
+  - Check:
+      1. If p is non-decreasing (0 ≤ 1 order preserved).
+      2. If x is a palindrome.
+  - If both conditions hold, output indices of p and stop.
+  - If no valid subsequence exists, output -1.
 */
+
 
 /*
   Alhamdulillah, problem solved successfully!
