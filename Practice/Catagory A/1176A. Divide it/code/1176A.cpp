@@ -87,8 +87,7 @@ using ull = unsigned long long;
 #endif
 
 void solve() {
-    long long n;
-    cin >> n;
+     INPUT_ll(n);
     
     if (n == 1) {
         cout << 0 << "\n";

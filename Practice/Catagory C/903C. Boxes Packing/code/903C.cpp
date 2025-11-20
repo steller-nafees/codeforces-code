@@ -80,6 +80,11 @@ using namespace std;
 #define uo_map(a,keytype, valuetype) unordered_map<keytype,valuetype> a;
 #define umap_input(a,n,dtype) for(int i = 0; i<n; i++){dtype x; cin>>x; a[x]++;}
 #define umap_freqCount(a, freq) for(auto x : a){freq[x]++;}
+#define SET(s,dType)set<dType>s
+#define INSERT(s, x) s.insert(x)
+#define EXISTS(s, x) (s.find(x) != s.end())
+#define SIZE(s)(int)s.size()
+#define CLEAR(s)s.clear()
 // Type aliases
 using ll = long long;
 using ull = unsigned long long;
