@@ -114,7 +114,7 @@ int main()
 }
 
 /*
-   💡 Solution Logic:
+   Solution Logic:
   - Alice wins if the first or last element is 1, otherwise Bob wins.
   - Observation: With optimal play, only the first and last elements affect the outcome.
   - Check a[0] and a[n-1]:

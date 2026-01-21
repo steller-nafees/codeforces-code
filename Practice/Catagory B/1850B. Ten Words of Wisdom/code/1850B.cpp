@@ -138,6 +138,24 @@ using ull = unsigned long long;
 void solve()
 {
     INPUT_int(n);
+
+    int ans = 0;
+    for(int i=0; i<n; i++)
+    {
+        INPUT_int(a);
+        INPUT_int(b);
+        
+
+        int maxB = 0; 
+        if(a <= 10 && b > maxB)
+        {
+            ans = i+1; 
+            maxB = b;
+        }
+    }
+    output(ans)
+
+    /*
     vector<pair<int,int>> responses(n);
     for(int i=0; i<n; i++)
     {
@@ -158,6 +176,7 @@ void solve()
     }
     sort_pair_second_desc(answers);
     output(answers[0].first);
+    */
 }
 
 int main()
