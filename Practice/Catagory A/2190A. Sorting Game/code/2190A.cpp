@@ -6,15 +6,48 @@
 // Date          : January 26, 2026 
 //
 // Problem Statement:
-// 
+// Alice and Bob play a game on a binary string s of length n 
+// (a string consisting only of characters 0 and 1). Alice moves first, and 
+// the players take alternate turns.
+//
+// In one turn, a player chooses a sequence of indices i1,i2,…,im 
+// (1≤i1<i2<…<im≤n) such that the characters at these positions form a 
+// non-increasing sequence (that is, si1≥si2≥…≥sim). The player then rearranges 
+// the characters at these positions to be sorted in non-decreasing order.
+//
+// Formally, let the chosen characters consist of z zeros and o ones 
+// (where z+o=m). The move replaces the characters at positions i1,i2,…,im 
+// with a sequence of z zeros followed by o ones. A move is valid if and only if 
+// it strictly modifies the string s (which implies z≥1 and o≥1).
+//
+// The player who cannot make a valid move loses.
+//
+// Assuming both players play optimally, determine the winner. If Alice wins, 
+// output a valid first move that is part of a winning strategy.
 //
 // Input:
+//   The first line contains the number of test cases t (1≤t≤10^4). 
+//   Each test case consists of two lines:
+//     - The first line contains a single integer n (1≤n≤2⋅10^5) — the length of the string s.
+//     - The second line contains the binary string s of length n.
+//
+// It is guaranteed that the sum of n over all test cases does not exceed 2⋅10^5.
 //
 // Output:
+//   For each test case:
+//     - If Bob wins with optimal play, print a single line containing "Bob".
+//     - Otherwise, print three lines:
+//         1. "Alice"
+//         2. An integer m (2≤m≤n)
+//         3. m distinct integers i1,i2,…,im (1≤i1<i2<…<im≤n) representing a valid first move.
 //
 // Constraints:
-//  - Time limit: 
-//  - Memory limit: 
+//   - 1 ≤ t ≤ 10^4
+//   - 1 ≤ n ≤ 2⋅10^5
+//   - sum of n over all test cases ≤ 2⋅10^5
+//   - s consists only of '0' and '1'
+//   - Time limit: 2 seconds
+//   - Memory limit: 256 MB
 //============================================================================
 
 /*
@@ -184,7 +217,11 @@ int main()
 
 /*
    Solution Logic:
-  - 
+  - Find the sorted version of the binary string.
+  - Compare the original string and sorted string to find positions where characters differ.
+  - If there are no differences, Bob wins.
+  - Otherwise, Alice wins and can choose all differing indices as her first move.
+  - Output "Alice", the number of differing indices, and the list of indices (1-based).
 */
 
 /*
