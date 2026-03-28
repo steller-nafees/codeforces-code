@@ -165,7 +165,7 @@ void solve()
     while(q--)
     {
         ll m; cin >> m;
-        ll left = 0, right = n-1, ans = -1;
+        /*ll left = 0, right = n-1, ans = -1;
         while(left <= right)
         {
             int mid = (left + right) / 2;
@@ -179,7 +179,11 @@ void solve()
                 right = mid - 1;
             }
         }
-        cout << ans + 1 << endl;
+        cout << ans + 1 << endl;*/
+
+        //using upper_bound
+        int ans = upper_bound(x.begin(), x.end(), m) - x.begin(); //deducting x.begin() gives us the index of the first element greater than m, which is also the count of elements less than or equal to m
+        cout << ans << endl;
     }
 
 
@@ -208,6 +212,7 @@ int main()
    - The number of valid shops will be (index + 1).
    - Repeat this process for all q days.
    - Time Complexity: O(n log n + q log n).
+   - using upper_bound simplifies the binary search and gives us the count directly.
 */
 
 /*

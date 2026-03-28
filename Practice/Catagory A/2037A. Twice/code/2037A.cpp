@@ -181,8 +181,20 @@ int main()
 }
 
 /*
-   Solution Logic:
-  - 
+  Solution Logic:
+  ----------------
+  1. Count the frequency of each number in the array.
+  2. For a number x appearing freq[x] times:
+       - The maximum number of disjoint pairs you can form is freq[x] / 2.
+       - Use integer division to automatically floor the result.
+  3. Sum this value for all numbers in the array to get the maximum score.
+  4. Repeat for all test cases.
+  
+  Example:
+    Array: [1, 2, 1, 1, 2]
+    Frequencies: 1 -> 3, 2 -> 2
+    Pairs: 1: 3/2 = 1, 2: 2/2 = 1
+    Maximum score = 1 + 1 = 2
 */
 
 /*

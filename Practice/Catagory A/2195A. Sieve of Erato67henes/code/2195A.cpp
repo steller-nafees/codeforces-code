@@ -108,7 +108,7 @@ void solve()
     for(int i=0; i<n; i++)
     {
         int a; cin>>a; 
-        if(a == 1) found = 1;
+        if(a == 67) found = 1;
     }
     cout << (found ? "YES\n" : "NO\n");
 
@@ -129,15 +129,12 @@ int main()
 
 /*
    Solution Logic:
-   - Since 67 is a prime number, the only possible ways to get a product of 67 are:
-       1) Selecting the number 67 itself.
-       2) Selecting 67 and multiplying by one or more 1's.
-   - Any other number greater than 1 will increase the product beyond 67.
-   - After sorting the array in descending order:
-       • If the largest element is 67
-       • And the smallest element is 1
-     then it is possible to form product 67.
-   - Otherwise, it is not possible.
+   - For each test case, we read n numbers.
+   - We iterate through all elements and check whether the value 1 exists.
+   - If at least one element equals 67, we print "YES".
+   - Otherwise, we print "NO".
+   - The solution runs in O(n) per test case, and since n ≤ 5,
+     it easily satisfies the time constraints.
 */
 
 /*

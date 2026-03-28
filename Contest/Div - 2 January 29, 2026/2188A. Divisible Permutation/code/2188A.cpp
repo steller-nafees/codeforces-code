@@ -1,34 +1,20 @@
 //============================================================================
 // Platform      : Codeforces 
-// Problem Title : 133A. HQ9+
+// Problem Title : 2188A. Divisible Permutation
 // Author        : H M Nafees N Islam
 // Institution   : North South University (NSU), Computer Science And Engineering
-// Date          : March 20, 2026 
+// Date          : January 29, 2026 
 //
 // Problem Statement:
-//   HQ9+ is a simple esoteric programming language. A program in HQ9+
-//   consists of a string of characters. The language has only four commands:
-//
-//     - 'H': prints "Hello, World!"
-//     - 'Q': prints the program itself
-//     - '9': prints the lyrics of "99 Bottles of Beer"
-//     - '+': increments the accumulator (no output)
-//
-//   Given a program string, determine whether executing it will produce any output.
-//
-//   If the program contains at least one of the characters 'H', 'Q', or '9',
-//   then it will produce output. Otherwise, it will not.
+// 
 //
 // Input:
-//   A single string consisting of characters (the program).
 //
 // Output:
-//   Print "YES" if the program produces output, otherwise print "NO".
 //
 // Constraints:
-//   - 1 ≤ length of string ≤ 100
-//   - Time limit: 2 seconds
-//   - Memory limit: 256 MB
+//  - Time limit: 
+//  - Memory limit: 
 //============================================================================
 
 /*
@@ -81,6 +67,62 @@ using namespace std;
 #define PQ_SUM(pq,sum) ll sum = 0;while(!pq.empty()){sum += pq.top();pq.pop();}
 #define Output_precision(pr,res) cout << fixed << setprecision(pr) << res << endl;
 
+// create maps
+#define umap(name, keytype, valuetype) unordered_map<keytype, valuetype> name;
+#define omap(name, keytype, valuetype) map<keytype, valuetype> name;
+
+// input & frequency
+#define umap_input_freq(mp, n, dtype) \
+for(int i = 0; i < n; i++){ dtype x; cin >> x; mp[x]++; }
+
+// convert map to vector (for sorting)
+#define map_to_vec(mp, vec) \
+vector<pair<decltype(mp.begin()->first), decltype(mp.begin()->second)>> vec(mp.begin(), mp.end());
+
+// sort by key
+#define sort_key_asc(vec) sort(vec.begin(), vec.end());
+#define sort_key_desc(vec) sort(vec.rbegin(), vec.rend());
+
+// sort by value
+#define sort_val_asc(vec) \
+sort(vec.begin(), vec.end(), [](auto &a, auto &b){ return a.second < b.second; });
+
+#define sort_val_desc(vec) \
+sort(vec.begin(), vec.end(), [](auto &a, auto &b){ return a.second > b.second; });
+
+// print
+#define print_map(mp) \
+for(auto &x : mp) cout << x.first << " " << x.second << "\n";
+
+#define print_vec(vec) \
+for(auto &x : vec) cout << x.first << " " << x.second << "\n";
+
+// pair type
+#define pii pair<int,int>
+#define pll pair<long long,long long>
+
+// input
+#define pair_input(p) cin >> p.first >> p.second
+#define pair_input_vec(v, n) \
+for(int i = 0; i < n; i++) cin >> v[i].first >> v[i].second
+
+// sort by first
+#define sort_pair_first_asc(v) sort(v.begin(), v.end())
+#define sort_pair_first_desc(v) sort(v.rbegin(), v.rend())
+
+// sort by second
+#define sort_pair_second_asc(v) \
+sort(v.begin(), v.end(), [](auto &a, auto &b){ return a.second < b.second; });
+
+#define sort_pair_second_desc(v) \
+sort(v.begin(), v.end(), [](auto &a, auto &b){ return a.second > b.second; });
+
+// print
+#define print_pair(p) cout << p.first << " " << p.second << "\n"
+#define print_pair_vec(v) \
+for(auto &x : v) cout << x.first << " " << x.second << "\n";
+
+/* ================================================ */
 // Type aliases
 using ll = long long;
 using ull = unsigned long long;
@@ -94,45 +136,39 @@ using ull = unsigned long long;
 
 void solve()
 {
-    string p; cin >> p;
-    bool found = false;
+    int n;
+    cin >> n;
 
-    for(char c : p)
-    {
-        if(c == 'H' || c == 'Q' || c == '9')
-        {
-            found = true;
-            break;
-        }
+    vector<int> p(n);
+    for (int i = 0; i < n; i++) {
+        p[i] = i + 1;
     }
 
-    if(found) cout << "YES" << endl;
-    else cout << "NO" << endl;
+    // swap adjacent elements
+    for (int i = 0; i + 1 < n; i += 2) {
+        swap(p[i], p[i + 1]);
+    }
+
+    for (int x : p) cout << x << " ";
+    cout << endl;
 }
 
 int main()
 {
     FAST_IO;
 
-    //int t; cin>>t; 
-    //while (t--) solve();
+    int t; cin>>t; 
+    while (t--) solve();
     
-    solve();
+    //For single test case, comment the above 3 lines and uncomment below line
+    //solve();
 
     return 0;
 }
 
 /*
-   💡 Solution Logic:
-   - We are given a string representing a program in HQ9+ language.
-   - The program produces output if it contains any of the characters:
-       'H', 'Q', or '9'.
-   - Traverse the string once:
-       - If any of these characters is found, mark as true.
-   - If found → print "YES", otherwise "NO".
-
-   Time Complexity: O(n)
-   Space Complexity: O(1)
+   Solution Logic:
+  - 
 */
 
 /*

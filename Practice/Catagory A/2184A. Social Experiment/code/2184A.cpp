@@ -116,13 +116,11 @@ int main()
 
 /*
    Solution Logic:
-   - People are grouped into teams of size 2 or 3.
-   - Each team joins one of two civilizations.
-   - If n is divisible by 2 or 3, teams can be distributed evenly,
-     resulting in zero difference.
-   - Otherwise, we calculate the minimum number of people required
-     to make n divisible by 2 or 3.
-   - That minimum extra count represents the smallest possible difference.
+   - People are divided into teams of size 2 or 3.
+   - Each team selects one of two civilizations.
+   - The goal is to minimize the absolute difference in total people.
+   - If n is divisible by 3, teams can be balanced perfectly → difference 0.
+   - Otherwise, the minimum possible difference equals n mod 3.
 */
 
 /*

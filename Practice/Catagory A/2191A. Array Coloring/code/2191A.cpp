@@ -1,20 +1,37 @@
 //============================================================================
 // Platform      : Codeforces 
-// Problem Title : 1850B. Ten Words of Wisdom
+// Problem Title : 2191A. Array Coloring
 // Author        : H M Nafees N Islam
 // Institution   : North South University (NSU), Computer Science And Engineering
-// Date          : January 20, 2026 
+// Date          : January 30, 2026 
 //
 // Problem Statement:
-// 
+// You have n cards arranged in a row, where the i-th card contains an integer ai.
+// All integers are distinct. You must color each card either red or blue such that:
+//
+// 1) Any two adjacent cards in the original row have different colors.
+// 2) If the cards are rearranged in increasing order of their values,
+//    any two adjacent cards in this new row also have different colors.
+//
+// Determine whether such a coloring is possible.
 //
 // Input:
+// Each test contains multiple test cases.
+// The first line contains an integer t — the number of test cases.
+// For each test case:
+//  - The first line contains an integer n — the number of cards.
+//  - The second line contains n distinct integers a1, a2, ..., an.
 //
 // Output:
+// For each test case, print "YES" if a valid coloring exists, otherwise print "NO".
 //
 // Constraints:
-//  - Time limit: 
-//  - Memory limit: 
+//  - 1 ≤ t ≤ 200
+//  - 2 ≤ n ≤ 100
+//  - 1 ≤ ai ≤ n
+//  - All elements of the array are distinct
+//  - Time limit: 1 second
+//  - Memory limit: 256 MB
 //============================================================================
 
 /*
@@ -100,8 +117,7 @@ for(auto &x : vec) cout << x.first << " " << x.second << "\n";
 // pair type
 #define pii pair<int,int>
 #define pll pair<long long,long long>
-#define pii_vec(a,n) vector<pii> a(n);
-#define pll_vec(a,n) vector<pll> a(n);
+
 // input
 #define pair_input(p) cin >> p.first >> p.second
 #define pair_input_vec(v, n) \
@@ -138,27 +154,38 @@ using ull = unsigned long long;
 void solve()
 {
     INPUT_int(n);
-    vector<pair<int,int>> responses(n);
-    for(int i=0; i<n; i++)
-    {
-        cin>>responses[i].first>>responses[i].second;
-    }
+    vi(a, n);
+    INPUT_ARRAY(a, n);
 
-    vector<pair<int, int>> answers;
-    for(int i= 0; i<n; i++)
+    bool flag = true;
+
+    // parity expected at even and odd indices
+    int p0 = a[0] % 2;
+    int p1 = a[1] % 2;
+
+    for (int i = 0; i < n; i++)
     {
-        if(responses[i].first <= 10)
+        if (i % 2 == 0)
         {
-            answers.push_back({i+1, responses[i].second});
+            if (a[i] % 2 != p0)
+            {
+                flag = false;
+                break;
+            }
         }
         else
         {
-            continue;
+            if (a[i] % 2 != p1)
+            {
+                flag = false;
+                break;
+            }
         }
     }
-    sort_pair_second_desc(answers);
-    output(answers[0].first);
+
+    cout<<(flag? "YES" : "NO")<<endl;
 }
+
 
 int main()
 {
@@ -175,7 +202,13 @@ int main()
 
 /*
    Solution Logic:
-  - 
+   - Since adjacent cards must have different colors, the coloring must alternate.
+   - After sorting the array, adjacent values must also alternate colors.
+   - This is possible if and only if all elements at even indices have the same parity,
+     and all elements at odd indices have the same parity.
+   - We record the parity of the first even and odd positions, then verify the entire array.
+   - If any position violates the expected parity pattern, the answer is "NO".
+   - Otherwise, a valid coloring exists.
 */
 
 /*
